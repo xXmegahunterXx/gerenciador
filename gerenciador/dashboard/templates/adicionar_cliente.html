@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Adicionar Cliente{% endblock %}
+
+{% block content %}
+<h1 class="h2 mt-4">Adicionar Novo Cliente</h1>
+<hr>
+
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.nome.label(class="form-label") }}
+        {{ form.nome(class="form-control") }}
+    </div>
+    <!-- Repita para os outros campos do formulário -->
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

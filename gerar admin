@@ -1,0 +1,7 @@
+from gerenciador import db
+from gerenciador.models import User
+
+user = User(username='admin')
+user.set_password('Tiago_2515')
+db.session.add(user)
+db.session.commit()

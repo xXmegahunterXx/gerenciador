@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="h2">Dashboard</h1>
+<hr>
+
+<!-- Seção de Clientes -->
+<div class="row">
+    <!-- Clientes Totais -->
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Clientes Totais</h5>
+                <p class="card-text display-4">{{ total_clientes }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Clientes Ativos -->
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Clientes Ativos</h5>
+                <p class="card-text display-4">{{ clientes_ativos }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Clientes Esgotados -->
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Clientes Esgotados</h5>
+                <p class="card-text display-4">{{ clientes_esgotados }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Seção Financeira -->
+<h2 class="h4 mt-4">Financeiro dos Clientes</h2>
+<p>Financeiro de seus clientes são inseridos automaticamente.</p>
+
+<div class="row">
+    <!-- Lucros -->
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Lucros</h5>
+                <p class="card-text display-4">R$ {{ lucro | round(2) }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Entrada -->
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Entrada</h5>
+                <p class="card-text display-4">R$ {{ entrada | round(2) }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Despesas -->
+    <div class="col-md-4">
+        <div class="card text-white bg-secondary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Despesas</h5>
+                <p class="card-text display-4">R$ {{ despesas | round(2) }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

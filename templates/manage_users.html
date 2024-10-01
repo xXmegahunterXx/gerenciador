@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Gerenciar Usuários{% endblock %}
+
+{% block content %}
+<h2>Gerenciar Usuários</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.confirm.label(class="form-label") }}
+        {{ form.confirm(class="form-control") }}
+    </div>
+    <div class="form-check mb-3">
+        {{ form.is_admin(class="form-check-input") }}
+        {{ form.is_admin.label(class="form-check-label") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+
+<h3 class="mt-4">Usuários Cadastrados</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th>Administrador</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>
+                {% if user.is_admin %}
+                    <span class="badge bg-success">Sim</span>
+                {% else %}
+                    <span class="badge bg-secondary">Não</span>
+                {% endif %}
+            </td>
+            <td>
+                <!-- Adicione botões para editar/deletar, se desejar -->
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
